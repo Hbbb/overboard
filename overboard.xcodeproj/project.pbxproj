@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67188AEE20C8A00600562179 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67188AED20C8A00500562179 /* ApiClient.swift */; };
+		67188AF020C8A19900562179 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67188AEF20C8A19900562179 /* Config.swift */; };
 		67E472EA20BF6435009D063D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E472E920BF6435009D063D /* AppDelegate.swift */; };
 		67E472EC20BF6435009D063D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E472EB20BF6435009D063D /* ViewController.swift */; };
 		67E472EF20BF6435009D063D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67E472ED20BF6435009D063D /* Main.storyboard */; };
@@ -40,6 +42,8 @@
 		1C1164F04F6DCAA93AC23BA8 /* Pods_overboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_overboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E519FEF7D39D40ACF66F3CF /* Pods-overboardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-overboardTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-overboardTests/Pods-overboardTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4472153EC31EF17BFACC94CE /* Pods-overboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-overboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-overboard/Pods-overboard.debug.xcconfig"; sourceTree = "<group>"; };
+		67188AED20C8A00500562179 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		67188AEF20C8A19900562179 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		67E472E620BF6435009D063D /* overboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = overboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67E472E920BF6435009D063D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67E472EB20BF6435009D063D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 			children = (
 				67E472E920BF6435009D063D /* AppDelegate.swift */,
 				67E472EB20BF6435009D063D /* ViewController.swift */,
+				67188AED20C8A00500562179 /* ApiClient.swift */,
+				67188AEF20C8A19900562179 /* Config.swift */,
 				67E472ED20BF6435009D063D /* Main.storyboard */,
 				67E472F020BF6435009D063D /* Assets.xcassets */,
 				67E472F220BF6435009D063D /* LaunchScreen.storyboard */,
@@ -393,7 +399,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				67E472EC20BF6435009D063D /* ViewController.swift in Sources */,
+				67188AF020C8A19900562179 /* Config.swift in Sources */,
 				67E472EA20BF6435009D063D /* AppDelegate.swift in Sources */,
+				67188AEE20C8A00600562179 /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
