@@ -11,15 +11,23 @@ import Alamofire
 
 struct ApiClient {
   func getBoard() {
-    let boardUrl = Config.Urls.local + "/boards/1.json"
+    let boardUrl = "\(Config.Urls.local)/boards/1.json"
     request(url: boardUrl, method: .get)
   }
   
-  private func request(url: String, method: HTTPMethod) {
+  func createBoard(text: String) {
+    let boardUrl = "\(Config.Urls.local)/boards"
+    let params: Parameters = ["content": text]
+    
+    request(url: boardUrl, method: .post, body: params)
+  }
+  
+  private func request(url: String, method: HTTPMethod, body: Parameters = [:]) {
     var headers = [String: String]()
     headers["Content-Type"] = "application/json"
     headers["Accept"] = "application/json"
     
+    // TODO: Figure out how to conditionally pass the parameters argument when this is a POST request
     Alamofire.request(url, method: method, headers: headers).responseJSON { response in
       print("Response: \(String(describing: response.response))") // http url response
       print("Result: \(response.result)")                         // response serialization result
