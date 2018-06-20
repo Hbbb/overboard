@@ -11,22 +11,41 @@ import Alamofire
 
 struct ApiClient {
   func getBoard() {
-    let boardUrl = Config.Urls.local + "/boards/1.json"
-    request(url: boardUrl, method: .get)
+    let boardUrl = Config.Urls.local + "/board"
+    get(url: boardUrl)
   }
   
-  private func request(url: String, method: HTTPMethod) {
+  func createBoard(text: String) {
+    let boardUrl = "\(Config.Urls.local)/boards"
+    let params: Parameters = ["content": text]
+    
+    post(url: boardUrl, body: params)
+  }
+  
+  private func post(url: String, body: Parameters = [:]) {
     var headers = [String: String]()
     headers["Content-Type"] = "application/json"
     headers["Accept"] = "application/json"
     
-    Alamofire.request(url, method: method, headers: headers).responseJSON { response in
-      print("Response: \(String(describing: response.response))") // http url response
-      print("Result: \(response.result)")                         // response serialization result
-      
+    Alamofire.request(url, method: .post, parameters: body, encoding: JSONEncoding.default).responseJSON { response in
       if let json = response.result.value {
-        print("JSON: \(json)") // serialized json response
+        print("JSON: \(json)")
       }
+      
+      if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+        print("Data: \(utf8Text)")
+      }
+    }
+  }
+  
+  private func get(url: String) {
+    var headers = [String: String]()
+    headers["Content-Type"] = "application/json"
+    headers["Accept"] = "application/json"
+    
+    Alamofire.request(url, method: .get, headers: headers).responseJSON { response in
+      guard let json = response.result.value else { return }
+      print("JSON: \(json)")
       
       if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
         print("Data: \(utf8Text)") // original server data as UTF8 string

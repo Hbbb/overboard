@@ -10,14 +10,8 @@ import UIKit
 import Alamofire
 
 class ViewController: UIViewController {
-
   override func viewDidLoad() {
     super.viewDidLoad()
-    ApiClient().getBoard()
-  }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+    ApiClient().createBoard(text: "I am a really dope board")
   }
 }
