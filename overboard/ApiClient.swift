@@ -11,7 +11,7 @@ import Alamofire
 
 struct ApiClient {
   func getBoard() {
-    let boardUrl = Config.Urls.local + "/boards/1.json"
+    let boardUrl = Config.Urls.local + "/board"
     request(url: boardUrl, method: .get)
   }
   
