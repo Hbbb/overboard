@@ -15,7 +15,8 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     ApiClient().getBoard()
   }
-
+  
+  //  TODO: Do a thing
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.

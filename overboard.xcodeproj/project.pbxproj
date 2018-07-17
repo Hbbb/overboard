@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6712C8D920FD686E00ED6FF0 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6712C8D820FD686E00ED6FF0 /* Board.swift */; };
 		67188AEE20C8A00600562179 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67188AED20C8A00500562179 /* ApiClient.swift */; };
 		67188AF020C8A19900562179 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67188AEF20C8A19900562179 /* Config.swift */; };
 		67E472EA20BF6435009D063D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E472E920BF6435009D063D /* AppDelegate.swift */; };
@@ -42,6 +43,7 @@
 		1C1164F04F6DCAA93AC23BA8 /* Pods_overboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_overboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E519FEF7D39D40ACF66F3CF /* Pods-overboardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-overboardTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-overboardTests/Pods-overboardTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4472153EC31EF17BFACC94CE /* Pods-overboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-overboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-overboard/Pods-overboard.debug.xcconfig"; sourceTree = "<group>"; };
+		6712C8D820FD686E00ED6FF0 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		67188AED20C8A00500562179 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		67188AEF20C8A19900562179 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		67E472E620BF6435009D063D /* overboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = overboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,6 +108,31 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		6712C8DB20FD6A1E00ED6FF0 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				6712C8D820FD686E00ED6FF0 /* Board.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		6712C8DC20FD6A4800ED6FF0 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				67188AEF20C8A19900562179 /* Config.swift */,
+				67188AED20C8A00500562179 /* ApiClient.swift */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		6712C8DD20FD6A5000ED6FF0 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				67E472EB20BF6435009D063D /* ViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
 		67E472DD20BF6435009D063D = {
 			isa = PBXGroup;
 			children = (
@@ -132,9 +159,9 @@
 			isa = PBXGroup;
 			children = (
 				67E472E920BF6435009D063D /* AppDelegate.swift */,
-				67E472EB20BF6435009D063D /* ViewController.swift */,
-				67188AED20C8A00500562179 /* ApiClient.swift */,
-				67188AEF20C8A19900562179 /* Config.swift */,
+				6712C8DD20FD6A5000ED6FF0 /* controller */,
+				6712C8DB20FD6A1E00ED6FF0 /* model */,
+				6712C8DC20FD6A4800ED6FF0 /* api */,
 				67E472ED20BF6435009D063D /* Main.storyboard */,
 				67E472F020BF6435009D063D /* Assets.xcassets */,
 				67E472F220BF6435009D063D /* LaunchScreen.storyboard */,
@@ -184,6 +211,7 @@
 				67E472E420BF6435009D063D /* Resources */,
 				9D21A33B70F4A65939FA495D /* [CP] Embed Pods Frameworks */,
 				67E4731A20BF68BF009D063D /* ShellScript */,
+				6712C8DA20FD690C00ED6FF0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -324,6 +352,19 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6712C8DA20FD690C00ED6FF0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:\"\nSKIPDIRS=\"/Pods\"\nfind \"${SRCROOT}/\" -type f \\( -name \"*.swift\" \\) -print0 \\\n| xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" \\\n| grep -v \"$SKIPDIRS\" \\\n| perl -p -e \"s/($TAGS)/ warning: \\$1/\"";
+		};
 		67E4731A20BF68BF009D063D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -363,10 +404,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-overboard/Pods-overboard-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -400,6 +445,7 @@
 			files = (
 				67E472EC20BF6435009D063D /* ViewController.swift in Sources */,
 				67188AF020C8A19900562179 /* Config.swift in Sources */,
+				6712C8D920FD686E00ED6FF0 /* Board.swift in Sources */,
 				67E472EA20BF6435009D063D /* AppDelegate.swift in Sources */,
 				67188AEE20C8A00600562179 /* ApiClient.swift in Sources */,
 			);

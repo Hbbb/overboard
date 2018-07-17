@@ -4,6 +4,7 @@ use_frameworks!
 target 'overboard' do
   pod 'Alamofire', '~> 4.7'
   pod 'SwiftLint'
+  pod 'RealmSwift'
 
   # Pods for overboard
 
